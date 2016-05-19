@@ -30,6 +30,9 @@
     {{?? $type == 'null' }}
       if ({{=$data}} === '' || {{=$data}} === 0 || {{=$data}} === false)
         {{=$coerced}} = null;
+    {{?? $type == 'date' }}
+      if ({{=$dataType}} == 'number' || {{=$dataType}} == 'string')
+        {{=$coerced}} = new Date( {{=$data}} );
     {{?}}
   {{~}}
 
