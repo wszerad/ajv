@@ -33,6 +33,8 @@
     {{?? $type == 'date' }}
       if ({{=$dataType}} == 'number' || {{=$dataType}} == 'string')
         {{=$coerced}} = new Date( {{=$data}} );
+	  if (isNaN({{=$coerced}}))
+        {{=$coerced}} = undefined;
     {{?}}
   {{~}}
 
